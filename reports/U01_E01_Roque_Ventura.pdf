@@ -23,7 +23,7 @@ endobj
 5 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/RoqueVentura/UASD-Maestria-Ciencia-De-Datos/tree/32d773e23218ddd0ac10e43eeaf667c47ce01f7c/Ciencia%20de%20datos%20II/Unidad%20I)
+/S /URI /Type /Action /URI (https://github.com/RoqueVentura/UASD-Maestria-Ciencia-De-Datos/tree/main/Ciencia%20de%20datos%20II/Unidad%20I)
 >> /Border [ 0 0 0 ] /Rect [ 154.6772 653.4457 384.7127 663.6457 ] /Subtype /Link /Type /Annot
 >>
 endobj
@@ -108,7 +108,7 @@ endobj
 endobj
 16 0 obj
 <<
-/Author (Roque Alexis Ventura Vallejo) /CreationDate (D:20260929135203-04'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260929135203-04'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+/Author (Roque Alexis Ventura Vallejo) /CreationDate (D:20260929135555-04'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260929135555-04'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (\(unspecified\)) /Title (U01.E01 - Dataset p\372blico y SVM reproducible) /Trapped /False
 >>
 endobj
@@ -146,25 +146,25 @@ xref
 0000000239 00000 n 
 0000000351 00000 n 
 0000000466 00000 n 
-0000000763 00000 n 
-0000000868 00000 n 
-0000000987 00000 n 
-0000001200 00000 n 
-0000021698 00000 n 
-0000021996 00000 n 
-0000042353 00000 n 
-0000042649 00000 n 
-0000042957 00000 n 
-0000043153 00000 n 
-0000043223 00000 n 
-0000043553 00000 n 
-0000043627 00000 n 
-0000047556 00000 n 
-0000050804 00000 n 
+0000000727 00000 n 
+0000000832 00000 n 
+0000000951 00000 n 
+0000001164 00000 n 
+0000021662 00000 n 
+0000021960 00000 n 
+0000042317 00000 n 
+0000042613 00000 n 
+0000042921 00000 n 
+0000043117 00000 n 
+0000043187 00000 n 
+0000043517 00000 n 
+0000043591 00000 n 
+0000047520 00000 n 
+0000050768 00000 n 
 trailer
 <<
 /ID 
-[<8992a9f215239a1432ba9b4be2477db9><8992a9f215239a1432ba9b4be2477db9>]
+[<c95f4150351820b42292be5fb1b6b22f><c95f4150351820b42292be5fb1b6b22f>]
 % ReportLab generated PDF document -- digest (opensource)
 
 /Info 16 0 R
@@ -172,5 +172,5 @@ trailer
 /Size 21
 >>
 startxref
-51859
+51823
 %%EOF
