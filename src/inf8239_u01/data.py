@@ -1,5 +1,7 @@
 from pathlib import Path
+
 import pandas as pd
+
 
 def download_csv(url: str, destination="data/raw/dataset.csv") -> Path:
     if not url.startswith(("https://", "http://")):

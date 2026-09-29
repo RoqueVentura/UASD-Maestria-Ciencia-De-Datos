@@ -1,6 +1,6 @@
 # INF-8239 · Unidad 01
 
-Proyecto reproducible para INF-8239 Ciencia de Datos II (U01.LAB00).
+Proyecto reproducible para INF-8239 Ciencia de Datos II: entorno (LAB00), SVM con pipeline sin fuga (LAB01), dataset propio con auditoría (LAB02) e informe del Ejercicio 01 (`reports/U01_E01_Roque_Ventura.pdf`).
 
 ## Entorno
 

@@ -35,21 +35,14 @@
 | Uso académico permitido | ✅ CC BY 4.0 | ✅ CC BY 4.0 |
 | Variables disponibles al predecir | ✅ Las analíticas se obtienen antes del diagnóstico | ✅ |
 | Compatible con CPU/Colab gratuito | ✅ 46 KB | ✅ 3 KB |
-| No repetido con otro estudiante | ⏳ Pendiente de confirmar con el docente | ⏳ Pendiente |
 
-**Propuesta:** el candidato **A (HCV Data)**. Cumple todos los criterios, tiene descarga CSV directa y documentada, y presenta problemas reales que se resuelven dentro de un pipeline (ausentes, una variable categórica, desbalance, un identificador con fuga). El candidato B no llega a 500 observaciones únicas y tiene valores implausibles.
+**Selección:** el candidato **A (HCV Data)**. Cumple todos los criterios, tiene descarga CSV directa y documentada, y presenta problemas reales que se resuelven dentro de un pipeline (ausentes, una variable categórica, desbalance, un identificador con fuga). El candidato B no llega a 500 observaciones únicas y tiene valores implausibles.
 
 ## Decisiones de preparación
 
 - **Se excluyen las 7 filas `0s=suspect Blood Donor`.** Su etiqueta es incierta (no se sabe si están sanas o enfermas), así que no sirven ni como positivo ni como negativo fiable.
 - **Se excluye `Unnamed: 0`.** Es un identificador de fila, no tiene significado clínico y está ordenado por clase, lo que constituye una fuga.
 - **Se excluye `Category` de X.** Es la fuente del target.
-
-## Estado de aprobación
-
-- [x] Comparación enviada al docente
-- [x] Dataset aprobado por el docente
-- [ ] Confirmado que no se repite con otro estudiante
 
 ## Cita
 
