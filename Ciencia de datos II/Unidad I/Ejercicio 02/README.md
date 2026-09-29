@@ -62,6 +62,7 @@ python -m pytest -q
 | Archivo | Contenido |
 |---|---|
 | `reports/green_ai_results.csv` | F1-macro, recall-macro, mediana de 3 ajustes, tiempo de predicción, tamaño serializado y pertenencia a la frontera de Pareto |
+| `reports/pca_varianza.png` | Varianza explicada acumulada del PCA |
 | `reports/pareto.png` | F1-macro frente a mediana de ajuste |
 | `reports/tsne_two_seeds.png` | Mapas t-SNE con semillas 42 y 7 |
 | `reports/models/*.joblib` | Modelos serializados (no se versionan) |
