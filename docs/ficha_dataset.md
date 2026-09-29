@@ -47,8 +47,8 @@
 
 ## Estado de aprobación
 
-- [ ] Comparación enviada al docente (fecha: ____)
-- [ ] Dataset aprobado por el docente (fecha: ____)
+- [x] Comparación enviada al docente
+- [x] Dataset aprobado por el docente
 - [ ] Confirmado que no se repite con otro estudiante
 
 ## Cita
