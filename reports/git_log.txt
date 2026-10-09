@@ -1,0 +1,3 @@
+14925bf feat: document and validate selected corpus
+6532964 docs: add dataset instructions and portability check
+d29a521 chore: initialize reproducible NLP project
