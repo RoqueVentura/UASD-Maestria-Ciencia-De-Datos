@@ -1,0 +1,24 @@
+Ruta: C:\Users\roque.ventura\Desktop\Ciencia de datos II\Unidad II\INF8239_U02_NLP_Proyecto_Base_uv\INF8239_U02_NLP_Proyecto_Base\data\raw\dataset.csv
+SHA-256: 71aa99d0d37feced03c999ec23b5b25302c92f39d69b6acb0a37aa076c5420e8
+Filas y columnas: (9543, 2)
+Nulos:
+ text     0
+label    0
+dtype: int64
+Duplicados de texto: 0
+Distribución:
+ label
+2    0.647386
+1    0.201509
+0    0.151106
+Name: proportion, dtype: float64
+Longitud de textos:
+ count    9543.000000
+mean       85.816934
+std        35.097229
+min         2.000000
+50%        79.000000
+90%       139.000000
+99%       140.000000
+max       190.000000
+Name: text, dtype: float64

@@ -39,6 +39,7 @@ Transformaciones: ninguna sobre `data/raw/`. Solo los ejemplos de esta ficha fue
 - 9 543 filas × 2 columnas
 - Nulos: 0
 - Duplicados de texto: 0
+- Longitud de textos (caracteres): mín 2, p50 79, p90 139, p99 140, máx 190
 - Distribución: Neutral 64.7 %, Bullish 20.2 %, Bearish 15.1 % (desbalanceada)
 - 4 470 textos con URLs y 294 con menciones @
 - Algunos caracteres mal codificados y textos truncados
