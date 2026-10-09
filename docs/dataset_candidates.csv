@@ -1,0 +1,3 @@
+name,url,license,language,rows,target,decision
+twitter-financial-news-sentiment,https://huggingface.co/datasets/zeroshot/twitter-financial-news-sentiment,MIT,en,9543,label,aprobado
+fake_news_corpus_spanish,https://huggingface.co/datasets/mariagrandury/fake_news_corpus_spanish,CC-BY-4.0,es,572,CATEGORY,rechazado
