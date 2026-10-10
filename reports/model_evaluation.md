@@ -49,6 +49,21 @@ No fuera del corpus. Las conclusiones aplican solo a titulares y tuits financier
 - **Mayor confusión fuera de la diagonal:** Neutral predicho como Bearish (106) y como Bullish (106), seguido de Bullish predicho como Neutral (101).
 - **Costo real:** cuando una noticia neutral se marca como Bearish o Bullish, se genera una falsa señal de mercado que podría motivar decisiones de compra o venta sin fundamento. A la inversa, las 89 noticias Bearish marcadas como Neutral son señales negativas que pasan inadvertidas.
 
+## Análisis de errores (`reports/error_analysis.csv`)
+
+El modelo seleccionado cometió 490 errores en prueba. Se clasificaron manualmente 20 (columna `category`); las predicciones no se modificaron.
+
+| Categoría | Errores | Ejemplo |
+|---|---|---|
+| Jerga financiera / cifras | 8 | "Celanese Q4 profits almost halved" (real Bearish, predicho Neutral) |
+| Ambigüedad | 4 | "Asian shares mixed as doubts grow on elusive U.S.-China trade deal" |
+| Etiqueta discutible | 3 | "Jokowi Warns of Economic Calamity From Forest Fires" (etiquetado Neutral) |
+| Tema fuera del dominio | 3 | "It is only failure if you stay down after the fall…" |
+| Texto insuficiente | 1 | "Ahold Delhaize share buyback update" |
+| Negación | 1 | "Nokia's surprise profit rise fails to salvage 2019 dividend" |
+
+**Hipótesis verificable:** el error dominante es la jerga financiera. TF-IDF no capta que "+14.6%", "halved", "puts" o "hits the sidelines" expresan sentimiento, y el signo de cifras como "-3.5%" se pierde al tokenizar. Siguiente experimento: conservar cifras con su signo o incorporar un léxico o modelo del dominio financiero, y comparar el recall de Bearish.
+
 ## Conclusión
 
 La regresión logística obtuvo el mejor F1 macro (0.726). Sin embargo, la clase **Bearish** presentó el menor recall (0.611), con **140 falsos negativos**, la mayoría confundidos con Neutral (89). En este contexto ese error implica **no detectar noticias negativas para el mercado y presentarlas como neutrales**. Por ello proponemos **analizar los errores Bearish↔Neutral, evaluar más ejemplos negativos o ajustar el umbral de decisión** antes de publicar.
