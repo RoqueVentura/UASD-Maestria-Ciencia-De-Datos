@@ -18,7 +18,7 @@ endobj
 4 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/RoqueVentura/UASD-Maestria-Ciencia-De-Datos/tree/d22b1dd89a018ec81dea54c071adb98c1b93557c/Ciencia%20de%20datos%20II/Unidad%20II/Ejercicio%2003)
+/S /URI /Type /Action /URI (https://github.com/RoqueVentura/UASD-Maestria-Ciencia-De-Datos/tree/main/Ciencia%20de%20datos%20II/Unidad%20II/Ejercicio%2003)
 >> /Border [ 0 0 0 ] /Rect [ 146.4573 621.4564 379.1991 631.7764 ] /Subtype /Link /Type /Annot
 >>
 endobj
@@ -120,7 +120,7 @@ endobj
 endobj
 17 0 obj
 <<
-/Author (Roque Alexis Ventura Vallejo) /CreationDate (D:20261009230104-04'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261009230104-04'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+/Author (Roque Alexis Ventura Vallejo) /CreationDate (D:20261009230519-04'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261009230519-04'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (\(unspecified\)) /Title (Ejercicio 03 \267 U02.E03) /Trapped /False
 >>
 endobj
@@ -164,28 +164,28 @@ xref
 0000000122 00000 n 
 0000000229 00000 n 
 0000000341 00000 n 
-0000000654 00000 n 
-0000000964 00000 n 
-0000001079 00000 n 
-0000001184 00000 n 
-0000001403 00000 n 
-0000029780 00000 n 
-0000030075 00000 n 
-0000078886 00000 n 
-0000079319 00000 n 
-0000079627 00000 n 
-0000079823 00000 n 
-0000080019 00000 n 
-0000080089 00000 n 
-0000080397 00000 n 
-0000080478 00000 n 
-0000084356 00000 n 
-0000087603 00000 n 
-0000091199 00000 n 
+0000000618 00000 n 
+0000000928 00000 n 
+0000001043 00000 n 
+0000001148 00000 n 
+0000001367 00000 n 
+0000029744 00000 n 
+0000030039 00000 n 
+0000078850 00000 n 
+0000079283 00000 n 
+0000079591 00000 n 
+0000079787 00000 n 
+0000079983 00000 n 
+0000080053 00000 n 
+0000080361 00000 n 
+0000080442 00000 n 
+0000084320 00000 n 
+0000087567 00000 n 
+0000091163 00000 n 
 trailer
 <<
 /ID 
-[<ae86a6ad98ed7daab95b4b241f3eb330><ae86a6ad98ed7daab95b4b241f3eb330>]
+[<6b9b8ca393ce6f8e6d55c81af45519ce><6b9b8ca393ce6f8e6d55c81af45519ce>]
 % ReportLab generated PDF document -- digest (opensource)
 
 /Info 17 0 R
@@ -193,5 +193,5 @@ trailer
 /Size 23
 >>
 startxref
-94213
+94177
 %%EOF
