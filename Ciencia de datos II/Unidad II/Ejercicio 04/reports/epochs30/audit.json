@@ -1,0 +1,81 @@
+{
+  "splits": {
+    "train": {
+      "shape": [
+        54000,
+        28,
+        28,
+        1
+      ],
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "class_counts": [
+        5370,
+        5416,
+        5398,
+        5395,
+        5367,
+        5409,
+        5435,
+        5445,
+        5384,
+        5381
+      ],
+      "duplicates_within": 0
+    },
+    "valid": {
+      "shape": [
+        6000,
+        28,
+        28,
+        1
+      ],
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "class_counts": [
+        630,
+        584,
+        602,
+        605,
+        633,
+        591,
+        565,
+        555,
+        616,
+        619
+      ],
+      "duplicates_within": 0
+    },
+    "test": {
+      "shape": [
+        10000,
+        28,
+        28,
+        1
+      ],
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "class_counts": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "duplicates_within": 0
+    }
+  },
+  "overlap": {
+    "train-valid": 0,
+    "train-test": 0,
+    "valid-test": 0
+  }
+}
