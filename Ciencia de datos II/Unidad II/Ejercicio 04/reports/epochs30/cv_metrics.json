@@ -13,13 +13,13 @@
     "accuracy": 0.8758,
     "parameters": 50890,
     "model_file_kb": 619.10546875,
-    "train_seconds": 16.372364599999855,
+    "train_seconds": 14.847402699990198,
     "epochs_run": 19,
     "best_epoch": 17,
-    "inference_ms_per_image": 0.044645900000614344,
+    "inference_ms_per_image": 0.042767489999823737,
     "inference_repeated": {
-      "median_ms_per_image": 0.012198489999718731,
-      "std_ms_per_image": 0.0003525911480190893,
+      "median_ms_per_image": 0.011626189999515191,
+      "std_ms_per_image": 0.00042587929919671644,
       "repeats": 5,
       "batch_images": 10000
     },
@@ -56,13 +56,13 @@
     "accuracy": 0.8505,
     "parameters": 19466,
     "model_file_kb": 262.1474609375,
-    "train_seconds": 240.5390181999901,
+    "train_seconds": 327.71239010000136,
     "epochs_run": 30,
     "best_epoch": 30,
-    "inference_ms_per_image": 0.08716780999966431,
+    "inference_ms_per_image": 0.23926959999953396,
     "inference_repeated": {
-      "median_ms_per_image": 0.054232240001147146,
-      "std_ms_per_image": 0.0019146049762478984,
+      "median_ms_per_image": 0.11235460000025341,
+      "std_ms_per_image": 0.0009218762097277872,
       "repeats": 5,
       "batch_images": 10000
     },
@@ -91,6 +91,49 @@
         "true": "Shirt",
         "pred": "Coat",
         "count": 91
+      }
+    ]
+  },
+  "cnn_flatten": {
+    "f1_macro": 0.9095663344717831,
+    "accuracy": 0.9113,
+    "parameters": 50186,
+    "model_file_kb": 622.1591796875,
+    "train_seconds": 243.10972069999843,
+    "epochs_run": 15,
+    "best_epoch": 13,
+    "inference_ms_per_image": 0.07762310999969486,
+    "inference_repeated": {
+      "median_ms_per_image": 0.04106843000045046,
+      "std_ms_per_image": 0.0014739547002336905,
+      "repeats": 5,
+      "batch_images": 10000
+    },
+    "top_confusions": [
+      {
+        "true": "Shirt",
+        "pred": "T-shirt/top",
+        "count": 136
+      },
+      {
+        "true": "Shirt",
+        "pred": "Coat",
+        "count": 125
+      },
+      {
+        "true": "Pullover",
+        "pred": "Coat",
+        "count": 72
+      },
+      {
+        "true": "T-shirt/top",
+        "pred": "Shirt",
+        "count": 70
+      },
+      {
+        "true": "Shirt",
+        "pred": "Pullover",
+        "count": 65
       }
     ]
   },
@@ -190,6 +233,104 @@
       "true": "Shirt",
       "pred": "Pullover",
       "confidence": 0.9577570557594299
+    }
+  ],
+  "cnn_flatten_errors": [
+    {
+      "index": 2914,
+      "true": "Sneaker",
+      "pred": "Ankle boot",
+      "confidence": 0.9999802112579346
+    },
+    {
+      "index": 5806,
+      "true": "Shirt",
+      "pred": "T-shirt/top",
+      "confidence": 0.9993608593940735
+    },
+    {
+      "index": 3531,
+      "true": "T-shirt/top",
+      "pred": "Dress",
+      "confidence": 0.9992437362670898
+    },
+    {
+      "index": 23,
+      "true": "Ankle boot",
+      "pred": "Sandal",
+      "confidence": 0.9992249011993408
+    },
+    {
+      "index": 787,
+      "true": "Trouser",
+      "pred": "Dress",
+      "confidence": 0.9991059899330139
+    },
+    {
+      "index": 1111,
+      "true": "T-shirt/top",
+      "pred": "Dress",
+      "confidence": 0.9978154897689819
+    },
+    {
+      "index": 3084,
+      "true": "Coat",
+      "pred": "Dress",
+      "confidence": 0.9978044629096985
+    },
+    {
+      "index": 3262,
+      "true": "Shirt",
+      "pred": "Coat",
+      "confidence": 0.9973324537277222
+    },
+    {
+      "index": 3741,
+      "true": "Shirt",
+      "pred": "Bag",
+      "confidence": 0.9969859719276428
+    },
+    {
+      "index": 5946,
+      "true": "Ankle boot",
+      "pred": "Sandal",
+      "confidence": 0.9968926906585693
+    },
+    {
+      "index": 1300,
+      "true": "Bag",
+      "pred": "Sandal",
+      "confidence": 0.9957025647163391
+    },
+    {
+      "index": 4886,
+      "true": "Shirt",
+      "pred": "T-shirt/top",
+      "confidence": 0.9955818057060242
+    },
+    {
+      "index": 4693,
+      "true": "Sneaker",
+      "pred": "Ankle boot",
+      "confidence": 0.9948418736457825
+    },
+    {
+      "index": 1197,
+      "true": "Shirt",
+      "pred": "Coat",
+      "confidence": 0.9916703701019287
+    },
+    {
+      "index": 8714,
+      "true": "Sneaker",
+      "pred": "Sandal",
+      "confidence": 0.9903665781021118
+    },
+    {
+      "index": 5520,
+      "true": "Sneaker",
+      "pred": "Ankle boot",
+      "confidence": 0.9878124594688416
     }
   ]
 }
