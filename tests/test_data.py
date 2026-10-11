@@ -56,3 +56,17 @@ def test_audit_detects_overlap_between_splits():
     audit = audit_splits({"a": (images[:2], labels[:2]), "b": (images[1:], labels[1:])})
     assert audit["overlap"]["a-b"] == 1
     assert audit["splits"]["a"]["class_counts"][:2] == [1, 1]
+
+
+def test_real_dataset_contract():
+    """Contrato sobre Fashion-MNIST real: tamaños de partición, forma, rango y 10 clases."""
+    tf = pytest.importorskip("tensorflow")
+    from inf8239_u02_cv.data import load_splits
+
+    (x_train, y_train), (x_valid, y_valid), (x_test, y_test) = load_splits(tf)
+    assert (len(x_train), len(x_valid), len(x_test)) == (54000, 6000, 10000)
+    for images, labels in ((x_train, y_train), (x_valid, y_valid), (x_test, y_test)):
+        assert images.shape[1:] == (28, 28, 1)
+        assert images.dtype == np.float32
+        assert 0.0 <= images.min() and images.max() <= 1.0
+        assert set(np.unique(labels)) == set(range(len(CLASS_NAMES)))

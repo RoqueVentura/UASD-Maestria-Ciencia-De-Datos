@@ -23,9 +23,15 @@ from sklearn.metrics import (
 
 from inf8239_u02_cv.data import CLASS_NAMES, audit_splits, load_splits
 from inf8239_u02_cv.evaluation import file_size_kb, measure_inference, top_confusions
-from inf8239_u02_cv.models import build_cnn, build_dense
+from inf8239_u02_cv.models import build_cnn, build_cnn_flatten, build_dense
 
 ROOT = Path(__file__).resolve().parents[1]
+# nombre -> (constructor, archivo del modelo). "cnn" es la CNN original del laboratorio.
+MODELS = {
+    "dense": (build_dense, "dense_baseline.keras"),
+    "cnn": (build_cnn, "best_cnn.keras"),
+    "cnn_flatten": (build_cnn_flatten, "cnn_flatten.keras"),
+}
 SEED = 42
 os.environ.setdefault("TF_DETERMINISTIC_OPS", "1")
 random.seed(SEED)
@@ -40,12 +46,13 @@ def compile_model(model):
 
 def plot_curves(histories: dict, path: Path) -> None:
     figure, axes = plt.subplots(1, 2, figsize=(11, 4))
-    for name, history in histories.items():
+    for color, (name, history) in zip(("C0", "C3", "C2"), histories.items()):
         epochs = range(1, len(history["loss"]) + 1)
         for axis, metric in zip(axes, ("loss", "accuracy")):
-            axis.plot(epochs, history[metric], marker="o", label=f"{name} entrenamiento")
-            axis.plot(epochs, history[f"val_{metric}"], marker="o", linestyle="--",
-                      label=f"{name} validación")
+            axis.plot(epochs, history[metric], color=color, marker="o", markersize=3,
+                      label=f"{name} entrenamiento")
+            axis.plot(epochs, history[f"val_{metric}"], color=color, marker="o", markersize=3,
+                      linestyle="--", label=f"{name} validación")
     for axis, title in zip(axes, ("Pérdida", "Accuracy")):
         axis.set_title(title)
         axis.set_xlabel("Época")
@@ -58,9 +65,9 @@ def plot_curves(histories: dict, path: Path) -> None:
 
 def plot_per_class_f1(reports: dict, path: Path) -> None:
     positions = np.arange(len(CLASS_NAMES))
-    width = 0.4
+    width = 0.27
     figure, axis = plt.subplots(figsize=(10, 4))
-    for offset, name in ((-width / 2, "dense"), (width / 2, "cnn")):
+    for offset, name in zip((-width, 0, width), reports):
         values = [reports[name][label]["f1-score"] for label in CLASS_NAMES]
         axis.bar(positions + offset, values, width, label=name)
     axis.set_xticks(positions, CLASS_NAMES, rotation=30, ha="right")
@@ -117,18 +124,15 @@ def main() -> None:
         "epochs_max": args.epochs, "seed": SEED,
     }}
     histories, class_reports, probabilities_by_model = {}, {}, {}
-    for name, factory in {"dense": build_dense, "cnn": build_cnn}.items():
+    for name, (factory, filename) in MODELS.items():
         model = compile_model(factory(tf))
-        model_path = models_dir / ("best_cnn.keras" if name == "cnn" else "dense_baseline.keras")
-        callbacks = [tf.keras.callbacks.EarlyStopping(patience=2, restore_best_weights=True)]
-        if name == "cnn":
-            callbacks.append(tf.keras.callbacks.ModelCheckpoint(model_path, save_best_only=True))
+        model_path = models_dir / filename
+        callbacks = [tf.keras.callbacks.EarlyStopping(patience=2, restore_best_weights=True),
+                     tf.keras.callbacks.ModelCheckpoint(model_path, save_best_only=True)]
         start = perf_counter()
         history = model.fit(x_train, y_train, validation_data=(x_valid, y_valid),
                             epochs=args.epochs, batch_size=128, callbacks=callbacks, verbose=2)
         train_seconds = perf_counter() - start
-        if name == "dense":
-            model.save(model_path)
         histories[name] = {key: [float(v) for v in values]
                            for key, values in history.history.items()}
         start = perf_counter()
@@ -161,8 +165,9 @@ def main() -> None:
         plt.savefig(reports / f"confusion_{name}.png", dpi=170, bbox_inches="tight")
         plt.close("all")
 
-    metrics["cnn_errors"] = plot_errors(x_test, y_test, probabilities_by_model["cnn"],
-                                        reports / "cnn_errors.png")
+    for name in ("cnn", "cnn_flatten"):
+        metrics[f"{name}_errors"] = plot_errors(x_test, y_test, probabilities_by_model[name],
+                                                reports / f"{name}_errors.png")
     plot_curves(histories, reports / "training_curves.png")
     plot_per_class_f1(class_reports, reports / "per_class_f1.png")
     (reports / "history.json").write_text(json.dumps(histories, indent=2), encoding="utf-8")
