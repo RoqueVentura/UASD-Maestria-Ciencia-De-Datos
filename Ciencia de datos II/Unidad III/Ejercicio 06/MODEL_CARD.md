@@ -29,7 +29,7 @@ Formato basado en Mitchell et al. (2019), *Model Cards for Model Reporting*, htt
 
 ## Dataset, licencia y particiones
 
-- **Fashion-MNIST** (Xiao, Rasul y Vollgraf, 2017, https://arxiv.org/abs/1708.07747), con licencia MIT: imágenes de 28×28 en escala de grises y 10 clases.
+- **Fashion-MNIST** (Xiao, Rasul y Vollgraf, 2017, https://doi.org/10.48550/arXiv.1708.07747), con licencia MIT: imágenes de 28×28 en escala de grises y 10 clases.
 - Entrenamiento: 60,000 imágenes, 6,000 por clase.
   - El AE reserva el 10 % final como validación (`validation_split=0.1`): 54,000 para entrenar y 6,000 para validar.
   - El VAE entrena con las 60,000, sin validación.
@@ -40,7 +40,7 @@ Formato basado en Mitchell et al. (2019), *Model Cards for Model Reporting*, htt
 ## Arquitectura y espacio latente
 
 - **AE**: `Flatten → Dense(16, relu) → Dense(784, sigmoid) → Reshape`. Pérdida: entropía cruzada binaria (BCE). Usa EarlyStopping con paciencia 2 y conserva los mejores pesos; las 6 épocas se completaron.
-- **VAE** (Kingma y Welling, 2013, https://arxiv.org/abs/1312.6114):
+- **VAE** (Kingma y Welling, 2013, https://doi.org/10.48550/arXiv.1312.6114):
   - Codificador: `Flatten → Dense(128, relu) → [z_mean(2), z_log_var(2)]`.
   - Decodificador: `Dense(128, relu) → Dense(784, sigmoid)`.
   - Usa el truco de reparametrización `z = μ + exp(½·logσ²)·ε`.

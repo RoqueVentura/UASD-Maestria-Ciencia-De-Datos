@@ -5,7 +5,7 @@ Estudiante: Roque Alexis Ventura Vallejo (100805873). Proyecto base y laboratori
 Consolida LAB10: un autoencoder (AE) y un autoencoder variacional (VAE) comparados por reconstrucción, muestreo, interpolación, diversidad, memoria y costo.
 
 ## Datos y licencia
-Fashion-MNIST (Xiao, Rasul y Vollgraf, 2017; https://arxiv.org/abs/1708.07747), licencia MIT.
+Fashion-MNIST (Xiao, Rasul y Vollgraf, 2017; https://doi.org/10.48550/arXiv.1708.07747), licencia MIT.
 - Tiene 70,000 imágenes de 28×28 en escala de grises y 10 clases balanceadas.
 - **No se versiona**: Keras lo descarga en `~/.keras/datasets` la primera vez que se entrena.
 - Este proyecto no usa ni redistribuye MovieLens.

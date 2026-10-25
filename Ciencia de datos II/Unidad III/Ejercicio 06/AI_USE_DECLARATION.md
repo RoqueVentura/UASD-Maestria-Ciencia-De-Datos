@@ -36,7 +36,10 @@ Decisiones:
 - El notebook ejecutado recalcula las métricas desde los modelos guardados, y todas coinciden con `training_metrics.json`.
 - `uv run pytest -q`: 7 pruebas pasan. `uv run ruff check`: sin errores.
 - La aplicación Streamlit carga `models/decoder.keras` sin errores.
-- Las tres referencias (Xiao et al., 2017; Kingma y Welling, 2013; Mitchell et al., 2019) se comprobaron en arXiv y Crossref.
+- Las tres referencias (Xiao et al., 2017; Kingma y Welling, 2013; Mitchell et al., 2019) tienen DOI; se comprobó que los tres resuelven en doi.org y que sus metadatos (título, autores y año) coinciden:
+  - https://doi.org/10.48550/arXiv.1708.07747
+  - https://doi.org/10.48550/arXiv.1312.6114
+  - https://doi.org/10.1145/3287560.3287596
 
 ## Cambios realizados sobre resultados generados
 
