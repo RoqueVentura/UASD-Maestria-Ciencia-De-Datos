@@ -30,5 +30,22 @@ Usé la IA como apoyo en LAB11. No la usé como sustituto de mi trabajo: el aná
 - **Verificaciones humanas:** comparé las cifras del informe con `global_metrics.json`, `fairness_by_group.csv` y `fairness_intersectional.csv`. También ejecuté `validate_lab12_decision.py` y `pytest` (`test_fairness.py`, `test_model.py`).
 - **Supuestos:** el soporte mínimo de 20 observaciones para los grupos interseccionales es un criterio propio, porque el proyecto no fija uno.
 
+## E07 · Expediente integrado
+- **Prompts relevantes (resumidos):**
+  1. "Ponte en contexto de este laboratorio […] no apliques cambios, solo entiende todo".
+  2. "¿Qué valores me pide el maestro que ponga aquí? Explícame por qué pide esto".
+  3. "Completa todo esto y pásame los comandos para yo correrlo, commit y push" (LAB12).
+  4. "Actualicemos todo acorde a este ejercicio 07 […] utiliza el formato del PDF adjunto […] verifica que el PDF no quede con datos del modelo template".
+- **Apoyo recibido:** análisis de mitigación (`src/inf8239_u04/mitigation.py`, `scripts/e07_mitigation.py`) y sus pruebas (`tests/test_mitigation.py`); intervalos bootstrap; borradores del README, del informe PDF y del anexo de evidencias.
+- **Verificaciones:**
+  - Ejecuté el análisis de mitigación dos veces y obtuve salidas idénticas.
+  - Las 12 pruebas pasan.
+  - Comparé las cifras del PDF con los CSV y JSON de `reports/`.
+  - Comprobé que los DOI de NIST, Fairlearn, Hardt et al. y Agarwal et al. resuelven en doi.org.
+- **Errores detectados y correcciones:**
+  - El DOI de la OECD que aparece en la guía (10.1787/cc2e1d3e-en) devuelve 404 en doi.org. Se cita la Recomendación desde su página oficial (OECD/LEGAL/0449).
+  - `ExponentiatedGradient` de fairlearn 0.12 no acepta `random_state` en el constructor. La semilla se pasa en `predict`.
+- **Decisiones propias:** la decisión final (modificar y limitar), el soporte mínimo de 20 observaciones y la clasificación normativa (obligación legal, marco voluntario y recomendación ética) las revisé y asumo como mías.
+
 ## Responsabilidad
 Asumo la responsabilidad por el contenido entregado.
