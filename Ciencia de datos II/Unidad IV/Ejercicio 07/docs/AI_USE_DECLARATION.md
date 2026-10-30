@@ -24,5 +24,11 @@ Usé la IA como apoyo en LAB11. No la usé como sustituto de mi trabajo: el aná
 - **Error en el script base:** `scripts/lab11_impact.py` tenía un texto entre comillas con saltos de línea reales, lo que producía `SyntaxError: unterminated string literal`. Se corrigió usando `\n`.
 - **Datos supuestos por la IA:** el nombre del propietario institucional ("Dirección de Gestión de Riesgo Territorial") y el plazo de apelación (10 días hábiles) son supuestos que la IA propuso para el caso sintético. Los revisé y acepté como parte del escenario didáctico.
 
+## LAB12 · Auditoría de equidad
+- **Finalidad:** apoyo para ejecutar las auditorías (logística y árbol), leer las métricas y redactar la interpretación.
+- **Fragmentos afectados:** `student_inputs/lab12_decision.yml` y `reports/lab12/AUDIT_REPORT.md`, ambos redactados en conjunto a partir de las métricas generadas por `scripts/lab12_audit.py`.
+- **Verificaciones humanas:** comparé las cifras del informe con `global_metrics.json`, `fairness_by_group.csv` y `fairness_intersectional.csv`. También ejecuté `validate_lab12_decision.py` y `pytest` (`test_fairness.py`, `test_model.py`).
+- **Supuestos:** el soporte mínimo de 20 observaciones para los grupos interseccionales es un criterio propio, porque el proyecto no fija uno.
+
 ## Responsabilidad
 Asumo la responsabilidad por el contenido entregado.
