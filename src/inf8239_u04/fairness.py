@@ -12,5 +12,7 @@ def intersectional(df):
     return df[["protected_group","age_band"]].astype(str).agg(" | ".join,axis=1)
 
 def gap(by_group, metric):
-    values=pd.to_numeric(by_group[metric],errors="coerce").dropna()
-    return float(values.max()-values.min()) if len(values) else 0.0
+    # Undefined metric in any group, or fewer than two groups, means the gap cannot be measured: NaN, never 0.0.
+    values=pd.to_numeric(by_group[metric],errors="coerce")
+    if len(values)<2 or values.isna().any(): return float("nan")
+    return float(values.max()-values.min())

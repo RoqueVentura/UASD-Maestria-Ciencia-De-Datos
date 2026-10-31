@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 import pandas as pd
 import yaml
@@ -12,12 +13,14 @@ def validate_raci(df):
     return True
 
 def deployment_decision(metrics, gaps, resources, gates):
+    # Missing or non-finite evidence fails the gate: it can never pass silently.
+    ok=lambda v: v is not None and math.isfinite(v)
     checks={
-      "recall": metrics["recall"] >= gates["min_recall"],
-      "recall_gap": gaps["recall_gap"] <= gates["max_recall_gap"],
-      "fpr_gap": gaps["fpr_gap"] <= gates["max_fpr_gap"],
-      "latency": resources["latency_ms"] <= gates["max_latency_ms"],
-      "model_size": resources["model_kb"] <= gates["max_model_kb"],
+      "recall": ok(metrics["recall"]) and metrics["recall"] >= gates["min_recall"],
+      "recall_gap": ok(gaps["recall_gap"]) and gaps["recall_gap"] <= gates["max_recall_gap"],
+      "fpr_gap": ok(gaps["fpr_gap"]) and gaps["fpr_gap"] <= gates["max_fpr_gap"],
+      "latency": ok(resources["latency_ms"]) and resources["latency_ms"] <= gates["max_latency_ms"],
+      "model_size": ok(resources["model_kb"]) and resources["model_kb"] <= gates["max_model_kb"],
     }
     failed=[k for k,v in checks.items() if not v]
     return {"status":"GO" if not failed else "REVIEW", "checks":checks, "failed":failed, "human_action":"Document review and final decision"}
