@@ -22,10 +22,13 @@ Expediente individual que integra LAB11 (evaluación de impacto ético) y LAB12 
 | `src/inf8239_u04/mitigation.py` | Variación del umbral, ExponentiatedGradient (paridad de recall) e intervalos bootstrap |
 | `scripts/e07_mitigation.py` | Comparación de mitigaciones y cálculo de la incertidumbre |
 | `reports/e07/` | `mitigation_comparison.csv`, `bootstrap_gaps.json`, `expgrad_intersectional.csv` y `run_log.txt` (salida real de consola) |
-| `tests/` | 12 pruebas: datos, privacidad, impacto, equidad, modelo, gobernanza, app y mitigación |
+| `tests/` | 19 pruebas: datos, privacidad, impacto, equidad, modelo, gobernanza (incluye que toda puerta fallida produzca REVIEW), app y mitigación |
 | `docs/AI_USE_DECLARATION.md` | Declaración de uso de IA |
-
-`docs/MODEL_CARD.md`, `docs/RUNBOOK.md` y `scripts/lab13_governance.py` pertenecen a LAB13 y todavía no forman parte de este expediente.
+| `configs/governance.yml` | Usos prohibidos, identificadores directos y umbrales de las puertas de despliegue (LAB13) |
+| `student_inputs/raci.csv` | Matriz RACI con un único Accountable por actividad (LAB13) |
+| `reports/lab13/` | Decisión de despliegue por puertas (`deployment_decision.json`) y métricas por grupo |
+| `docs/MODEL_CARD.md` | Model card: uso previsto y prohibido, datos, evaluación global y por subgrupo, Green AI, supervisión, apelación y propietario |
+| `docs/RUNBOOK.md` | Runbook de incidentes: detección, autoridad de contención, evidencia, comunicación, retorno a FIFO y postmortem |
 
 ## Reproducir
 ```bash
@@ -37,6 +40,7 @@ uv run python scripts/lab12_audit.py --model logistic
 uv run python scripts/lab12_audit.py --model tree
 uv run python scripts/validate_lab12_decision.py
 uv run python scripts/e07_mitigation.py
+uv run python scripts/lab13_governance.py
 ```
 
 **Antes de reproducir:**

@@ -16,7 +16,7 @@ evidence: >-
   brecha de FPR 0.168, accuracy 0.706, 7.9 KB. Solo la logística cumple los
   umbrales (reports/lab12/*/global_metrics.json, fairness_by_group.csv).
 limitation: >-
-  El test tiene 160 casos (G1=101, G2=59) y 5 de los 8 grupos interseccionales
+  El test tiene 160 casos (G1=101, G2=59) y 4 de los 8 grupos interseccionales
   tienen menos de 20 observaciones, así que las brechas son inestables y no
   tienen intervalos de confianza. La prevalencia difiere por grupo (G1 0.49,
   G2 0.73). Los datos son sintéticos. Una brecha observada no prueba
