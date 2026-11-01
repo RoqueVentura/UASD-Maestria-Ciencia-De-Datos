@@ -13,6 +13,10 @@ Los roles provienen de `student_inputs/raci.csv` y los umbrales de `configs/gove
    | Casos cerrados sin revisión registrada | Registro de casos revisados (R02) | Media |
    | Recall de G1 < 0.68 o FPR de G2 · 60+ > 0.5 con brechas aún dentro de la tolerancia | Revisión mensual del supervisor (LAB12) | Media: vigilancia reforzada |
    | Latencia > 500 ms o caída del servicio | Prueba de latencia (R05) | Baja: operar con FIFO |
+   | Lote con columnas faltantes o identificadores directos | Contrato de datos (`validate_schema`) | Alta: rechazar el lote antes de predecir |
+   | PSI >= 0.25 frente al entrenamiento, o proporción de ceros o nulos por zona 3 veces mayor que la referencia | `configs/monitoring.yml`; `scripts/e08_monitoring.py` | Alta: cuarentena del lote (simulacro E08) |
+
+   El plan completo de señales, frecuencia y responsables está en `configs/monitoring.yml`.
 
    Cualquier puerta fallida deja la decisión en REVIEW y aparece en `failed`. Nunca se oculta (`tests/test_governance.py`).
 

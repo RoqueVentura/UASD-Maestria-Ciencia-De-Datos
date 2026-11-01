@@ -8,9 +8,9 @@
     "fpr_gap": 0.125
   },
   "resources": {
-    "training_seconds": 0.05948789999820292,
+    "training_seconds": 0.05756310001015663,
     "model_kb": 3.5634765625,
-    "latency_ms": 0.03121687514067162
+    "latency_ms": 0.02577187515271362
   },
   "decision": {
     "status": "GO",
@@ -26,7 +26,7 @@
   },
   "recommendation": {
     "status": "GO",
-    "model_version": "logistic-sklearn1.9.1-9c34ad5",
+    "model_version": "logistic-sklearn1.9.1-054494c",
     "policy": {
       "system": "Territorial Review DSS - Synthetic",
       "purpose": "Prioritize synthetic cases for human review",
