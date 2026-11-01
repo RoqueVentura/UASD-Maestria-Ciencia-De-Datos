@@ -1,54 +1,53 @@
-# U04.E07 · Evaluación de impacto y auditoría de equidad
+# U04.E08 · Expediente de gobernanza y simulacro
 
 INF-8239 Ciencia de Datos II · Unidad 04 · Roque Alexis Ventura Vallejo (100805873)
 
-Expediente individual que integra LAB11 (evaluación de impacto ético) y LAB12 (auditoría de equidad con Fairlearn) sobre el caso sintético **Territorial Review DSS**: un sistema que ordena casos para que una persona los revise. El sistema no autoriza decisiones automáticas sobre personas.
+Expediente individual que integra LAB13 (gobernanza y DSS responsable con Streamlit) sobre el caso sintético **Territorial Review DSS**, a partir de LAB11, LAB12 y E07. El sistema ordena casos para que una persona los revise; no autoriza decisiones automáticas sobre personas.
 
-- **Informe de síntesis:** `U04_E07_Roque_Ventura.pdf`
-- **Anexo de evidencias:** `U04_E07_Evidencias_Roque_Ventura.pdf`
+- **Informe de síntesis:** `U04_E08_Roque_Ventura.pdf`
+- **Anexo de evidencias:** `U04_E08_Evidencias_Roque_Ventura.pdf`
 
 ## Decisión final
-**Modificar y limitar.** El modelo base no se despliega tal como está. La versión mitigada (regresión logística con restricción de paridad de recall) se usa solo en un piloto limitado, con revisión humana de todos los casos, apelación y la condición de retiro definida en LAB11. La justificación está en el informe (sección 5) y en `reports/lab11/DECISION_RECORD.md`.
+**Modificar y limitar.** Las puertas de LAB13 dan GO en el agregado, pero el monitoreo mensual muestra un recall bajo en octubre (0.643) y una brecha de recall por encima de la tolerancia en noviembre (0.175). Se mantiene el piloto limitado con el modelo mitigado de E07, revisión humana de todos los casos, FIFO con reglas como respaldo y la condición de retiro de LAB11. La justificación está en la sección 6 del informe.
 
 ## Artefactos
 | Ruta | Contenido |
 |---|---|
-| `student_inputs/lab11_impact.yml` | Finalidad, decisión asistida, usuarios, población afectada, propietario, alternativa no predictiva, usos prohibidos, condición de retiro y apelación |
-| `student_inputs/stakeholders.csv` | Partes interesadas: beneficio, daño, poder y participación |
-| `student_inputs/risk_register.csv` | Registro de 8 riesgos con control, responsable, evidencia y riesgo residual |
-| `reports/lab11/` | Riesgos priorizados, resumen NIST AI RMF y registro de decisión |
-| `student_inputs/lab12_decision.yml` | Daño prioritario, métrica, tolerancia, evidencia, limitación y recomendación |
-| `reports/lab12/` | Métricas globales, por grupo e interseccionales de la logística y el árbol, e informe de auditoría (`AUDIT_REPORT.md`) |
-| `src/inf8239_u04/mitigation.py` | Variación del umbral, ExponentiatedGradient (paridad de recall) e intervalos bootstrap |
-| `scripts/e07_mitigation.py` | Comparación de mitigaciones y cálculo de la incertidumbre |
-| `reports/e07/` | `mitigation_comparison.csv`, `bootstrap_gaps.json`, `expgrad_intersectional.csv` y `run_log.txt` (salida real de consola) |
-| `tests/` | 23 pruebas: datos (columna prohibida o faltante), privacidad, impacto, equidad, modelo, gobernanza (toda puerta fallida produce REVIEW, RACI con un único Accountable, recomendación trazable), app y mitigación |
+| `student_inputs/data_inventory.csv` | Inventario de campos: categoría, uso en modelo y auditoría, finalidad, minimización, retención y acceso |
+| `student_inputs/retention_policy.csv` | Retención y eliminación por artefacto, con responsable y Accountable |
+| `student_inputs/raci.csv` | Matriz RACI con un único Accountable por actividad |
+| `student_inputs/handoffs.csv` | Traspasos entre roles: entregable, criterio de aceptación, evidencia y firma del Accountable |
+| `configs/governance.yml` | Usos prohibidos, identificadores directos y umbrales de las puertas |
+| `configs/monitoring.yml` | Plan de monitoreo: señales, frecuencia, responsables, umbrales y acción |
+| `docs/DATASET_CARD.md` | Datasheet (Gebru et al.) |
+| `docs/MODEL_CARD.md` | Model Card con trazabilidad, monitoreo y simulacro |
+| `docs/RUNBOOK.md` | Runbook de incidentes |
 | `docs/AI_USE_DECLARATION.md` | Declaración de uso de IA |
-| `configs/governance.yml` | Usos prohibidos, identificadores directos y umbrales de las puertas de despliegue (LAB13) |
-| `student_inputs/raci.csv` | Matriz RACI con un único Accountable por actividad (LAB13) |
-| `reports/lab13/` | Decisión de despliegue por puertas y recomendación trazable (`deployment_decision.json`), métricas por grupo y postmortem del simulacro (`INCIDENT_POSTMORTEM.md`) |
+| `src/inf8239_u04/monitoring.py` | PSI, reporte mensual por grupo y alertas |
+| `scripts/e08_monitoring.py` | Genera `reports/e08/monitoring_*.csv`, `drift_psi.csv` y `monitoring_summary.json` |
+| `scripts/e08_incident_drill.py` | Simulacro reproducible; evidencia y manifiesto SHA-256 en `reports/e08/incident_drill/` |
+| `reports/e08/POSTMORTEM.md` | Postmortem del simulacro con acciones, responsables y fechas |
+| `reports/e08/run_log.txt` | Salida de consola de todos los comandos |
+| `reports/lab13/` | Decisión por puertas con recomendación trazable, métricas por grupo y postmortem de LAB13 |
+| `reports/lab11/`, `reports/lab12/`, `reports/e07/` | Evidencia previa: riesgos, auditoría y mitigación |
 | `app.py` | Tablero Streamlit: propósito, límites, métricas, grupos, puertas, recomendación y acción humana |
+| `tests/` | 32 pruebas: datos, privacidad, equidad, modelo, gobernanza, app, mitigación e inventario, retención, traspasos, monitoreo y simulacro (`test_e08.py`) |
+| `scripts/build_e08_pdf.py` | Genera los dos PDF a partir de los archivos anteriores |
 | `requirements.txt` | Dependencias exportadas con `uv export` para Streamlit Community Cloud |
-| `docs/MODEL_CARD.md` | Model card: uso previsto y prohibido, datos, evaluación global y por subgrupo, Green AI, supervisión, apelación y propietario |
-| `docs/RUNBOOK.md` | Runbook de incidentes: detección, autoridad de contención, evidencia, comunicación, retorno a FIFO y postmortem |
 
 ## Reproducir
 ```bash
 uv sync --frozen
 uv run pytest -q
-uv run python scripts/check_environment.py
-uv run python scripts/describe_dataset.py
-uv run python scripts/lab12_audit.py --model logistic
-uv run python scripts/lab12_audit.py --model tree
-uv run python scripts/validate_lab12_decision.py
-uv run python scripts/e07_mitigation.py
 uv run python scripts/lab13_governance.py
-uv run python scripts/simulate_incident.py
+uv run python scripts/e08_monitoring.py
+uv run python scripts/e08_incident_drill.py
 uv run streamlit run app.py
+uv run --with reportlab --with pillow python scripts/build_e08_pdf.py
 ```
 
 **Antes de reproducir:**
-- No ejecute `scripts/lab11_impact.py` sin respaldo: reescribe `reports/lab11/DECISION_RECORD.md` con la plantilla. Si ocurre, recupere el archivo con `git checkout -- reports/lab11/DECISION_RECORD.md`.
-- Los resultados son deterministas: todo usa la semilla 42 y un corte temporal fijo. Solo varían los tiempos de entrenamiento.
+- No ejecute `scripts/lab11_impact.py` sin respaldo: reescribe `reports/lab11/DECISION_RECORD.md` con la plantilla. Si ocurre, recupérelo con `git checkout -- reports/lab11/DECISION_RECORD.md`.
+- Los resultados son deterministas (semilla 42 y corte temporal fijo). Solo cambian los tiempos, las marcas de fecha y el commit dentro de la versión del modelo.
 
 Los datos son sintéticos y didácticos. No representan personas, territorios ni estadísticas reales de la República Dominicana.

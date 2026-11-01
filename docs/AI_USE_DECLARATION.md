@@ -38,5 +38,12 @@ Claude Code (Claude Opus 5.5, de Anthropic) en Visual Studio Code, octubre de 20
 - **Apoyo de Claude Code:** revisión del laboratorio contra el checklist; corrección para que una puerta sin evidencia no pase como GO; validación de un único Accountable en la RACI; recomendación trazable (versión, política, evidencia y acción humana) en `deployment_decision.json` y en la app; pruebas de contrato (columna faltante), RACI, trazabilidad y app; propuesta de redacción del postmortem del simulacro.
 - **Verificaciones:** ejecuté todas las pruebas, revisé que la decisión y las cifras del postmortem coincidan con `reports/lab13/` y `reports/e07/`, y abrí el tablero localmente.
 
+## E08 · Expediente de gobernanza y simulacro
+- **Mi trabajo:** ejecuté LAB13 en mi equipo (anexo de evidencias, E1–E7), revisé los artefactos y fijé los valores de gobernanza: plazos de retención, criterios de aceptación de cada traspaso, umbrales de PSI y la decisión final. Hice los commits y el push.
+- **Prompts relevantes:** verificar LAB13 contra el manual y corregir lo faltante; completar E08 según el mandato y la rúbrica; adaptar el formato del PDF de E07; generar el anexo con mis capturas.
+- **Apoyo de Claude Code:** propuesta de inventario, retención, traspasos y plan de monitoreo; código de `monitoring.py`, `e08_monitoring.py`, `e08_incident_drill.py` y `test_e08.py`; redacción del datasheet y del postmortem; generador del PDF.
+- **Verificaciones:** las 32 pruebas pasan. Comparé las cifras del informe con los CSV y JSON de `reports/e08/` y con `run_log.txt`. Los traspasos se validan contra la RACI de forma automática.
+- **Correcciones:** (1) la primera versión de las alertas omitía el recall mensual cuando un grupo tenía poco soporte; se corrigió y apareció la alerta de octubre (0.643). (2) El PSI global no detectó el fallo del simulacro (0.194 < 0.25); en lugar de ocultarlo, se documentó y se añadió el perfil por zona. (3) Se mostró que el PSI por zona da falsos positivos con muestras pequeñas (Norte 0.27, Sur 0.38). (4) Se recortó de las capturas la barra de estado con una cuenta corporativa.
+
 ## Responsabilidad
 Los valores del análisis son míos: el daño priorizado, las tolerancias, el soporte mínimo de 20 observaciones y la decisión de modificar y limitar. Puedo explicar cada parte y asumo la responsabilidad de lo entregado.

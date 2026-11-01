@@ -6,3 +6,5 @@ models/*.joblib
 reports/**/*.png
 .streamlit/secrets.toml
 .vscode/
+# Original evidence document: its screenshots show a corporate account (cropped copies live in reports/e08/evidencias/)
+reports/*.docx
