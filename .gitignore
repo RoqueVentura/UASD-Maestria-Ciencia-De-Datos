@@ -5,3 +5,4 @@ __pycache__/
 models/*.joblib
 reports/**/*.png
 .streamlit/secrets.toml
+.vscode/

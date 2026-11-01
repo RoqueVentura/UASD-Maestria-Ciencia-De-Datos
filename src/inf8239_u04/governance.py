@@ -10,6 +10,7 @@ def validate_raci(df):
     required={"activity","R","A","C","I"}
     if required-set(df.columns): raise ValueError("RACI columns missing")
     if df[["R","A"]].fillna("").apply(lambda s:s.str.strip().eq("")).any().any(): raise ValueError("Every activity needs R and A")
+    if df["A"].astype(str).str.contains(r"[;,]").any(): raise ValueError("Every activity needs exactly one A")
     return True
 
 def deployment_decision(metrics, gaps, resources, gates):
@@ -24,3 +25,21 @@ def deployment_decision(metrics, gaps, resources, gates):
     }
     failed=[k for k,v in checks.items() if not v]
     return {"status":"GO" if not failed else "REVIEW", "checks":checks, "failed":failed, "human_action":"Document review and final decision"}
+
+EVIDENCE=["reports/lab13/deployment_decision.json","reports/lab13/fairness_by_group.csv","docs/MODEL_CARD.md","docs/RUNBOOK.md","student_inputs/raci.csv"]
+AUTHORITY_LIMIT="El DSS prioriza revisión y presenta evidencia; no declara emergencias, culpabilidad, elegibilidad ni intervención automática."
+
+def model_version(kind="logistic"):
+    import sklearn, subprocess
+    try: commit=subprocess.run(["git","rev-parse","--short","HEAD"],capture_output=True,text=True,check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError): commit="unversioned"
+    return f"{kind}-sklearn{sklearn.__version__}-{commit}"
+
+def recommendation(decision, cfg, version):
+    # Traceable recommendation: version, policy, evidence and the human action it requires.
+    if decision["status"]=="GO": action="El analista revisa cada caso priorizado y registra su decisión; la Dirección firma el despliegue."
+    else: action=f"Un responsable humano analiza las puertas fallidas ({', '.join(decision['failed'])}) y registra su decisión; no se despliega hasta entonces."
+    return {"status":decision["status"], "model_version":version,
+            "policy":{"system":cfg["system_name"],"purpose":cfg["purpose"],"prohibited_uses":cfg["prohibited_uses"],"gates":cfg["gates"]},
+            "evidence":{"checks":decision["checks"],"failed":decision["failed"],"files":EVIDENCE},
+            "authority_limit":AUTHORITY_LIMIT, "human_action":action}

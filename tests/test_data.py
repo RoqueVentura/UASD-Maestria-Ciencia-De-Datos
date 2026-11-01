@@ -5,3 +5,5 @@ def test_dataset_contract():
 def test_direct_identifier_rejected():
     df=load_data().assign(email="x@example.org")
     with pytest.raises(ValueError,match="Direct identifiers"): validate_schema(df)
+def test_missing_column_rejected():
+    with pytest.raises(ValueError,match="Missing columns"): validate_schema(load_data().drop(columns="exposure"))

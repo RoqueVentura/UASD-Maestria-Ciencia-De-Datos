@@ -33,5 +33,10 @@ Claude Code (Claude Opus 5.5, de Anthropic) en Visual Studio Code, octubre de 20
 2. Matizamos la lectura «la logística cumple las brechas» con intervalos de confianza bootstrap.
 3. Medimos la alternativa sin modelo en lugar de solo enunciarla.
 
+## LAB13 · Gobernanza y DSS con Streamlit
+- **Mi trabajo:** completé la matriz RACI, revisé los umbrales de `configs/governance.yml`, ejecuté el pipeline de gobernanza, el simulacro de incidente y el tablero, y completé la Model Card y el runbook con la evidencia de LAB11–12.
+- **Apoyo de Claude Code:** revisión del laboratorio contra el checklist; corrección para que una puerta sin evidencia no pase como GO; validación de un único Accountable en la RACI; recomendación trazable (versión, política, evidencia y acción humana) en `deployment_decision.json` y en la app; pruebas de contrato (columna faltante), RACI, trazabilidad y app; propuesta de redacción del postmortem del simulacro.
+- **Verificaciones:** ejecuté todas las pruebas, revisé que la decisión y las cifras del postmortem coincidan con `reports/lab13/` y `reports/e07/`, y abrí el tablero localmente.
+
 ## Responsabilidad
 Los valores del análisis son míos: el daño priorizado, las tolerancias, el soporte mínimo de 20 observaciones y la decisión de modificar y limitar. Puedo explicar cada parte y asumo la responsabilidad de lo entregado.
