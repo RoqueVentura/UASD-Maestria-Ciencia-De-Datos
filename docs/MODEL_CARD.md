@@ -102,6 +102,12 @@ El árbol ocupa el doble que la logística y no mejora la utilidad, así que su 
 
 **Apelación:** la persona afectada puede pedir revisión humana a un supervisor independiente, que responde en 10 días hábiles. El responsable (R) es el supervisor independiente de apelaciones y quien rinde cuentas (A) es la Dirección de Gestión de Riesgo Territorial (`student_inputs/raci.csv`).
 
+## Traceability and monitoring (E08)
+- **Versión y evidencia:** `reports/lab13/deployment_decision.json` registra la versión (`logistic-sklearn<versión>-<commit>`), la política, las puertas y la acción humana. Los datos están descritos en `docs/DATASET_CARD.md` y `student_inputs/data_inventory.csv`.
+- **Monitoreo mensual** (`reports/e08/monitoring_by_month.csv`, plan en `configs/monitoring.yml`): el GO agregado oculta fallas por mes. En octubre el recall fue de 0.643 (< 0.68). En noviembre, el único mes con al menos 20 casos por grupo, la brecha de recall fue de 0.175 (> 0.16) y el recall de G1 de 0.625. Septiembre y diciembre no tienen soporte para interpretar las brechas.
+- **Deriva:** PSI máximo frente al entrenamiento de 0.084 (`previous_incidents`), por debajo del umbral de vigilancia de 0.10 (`reports/e08/drift_psi.csv`).
+- **Simulacro:** un fallo de ingesta en una zona lleva el recall a 0.522 y la brecha a 0.199. La decisión pasa a REVIEW y vuelve a GO al corregir el lote (`reports/e08/POSTMORTEM.md`).
+
 ## Owner and review date
 - **Propietario (Accountable):** Dirección de Gestión de Riesgo Territorial.
 - **Responsable del monitoreo:** Ingeniero de ML (R) y Líder del equipo de datos (A).
