@@ -260,10 +260,13 @@ story.append(Preformatted("uv sync --frozen\nuv run pytest -q\nuv run python scr
 story += section("8. Uso de inteligencia artificial")
 story.append(label_table([
     ("Herramienta", "Claude Code (Claude Opus 5.5, de Anthropic) en Visual Studio Code, octubre de 2026."),
-    ("Mi trabajo", "Ejecuté LAB13 en mi equipo (anexo, E1–E7). Guié el trabajo con la IA: indiqué qué verificar contra el manual, el "
-     "mandato y la rúbrica, pedí correcciones y definí el alcance. Revisé e implementé los artefactos y sus valores (retención, "
-     "traspasos, umbrales y decisión final). Ejecuté las pruebas y los scripts, hice los commits y las etiquetas, integré el proyecto "
-     "en el repositorio del curso e hice el push."),
+    ("Mi trabajo", "Ejecuté LAB13 en mi equipo y preparé las capturas de evidencia (anexo, E1–E7). Dirigí el trabajo con la IA: "
+     "indiqué qué verificar contra el manual, el mandato y la rúbrica, definí el alcance, elegí el repositorio y la carpeta de "
+     "entrega y pedí reutilizar el formato de E07. Revisé cada propuesta antes de aceptarla y pedí cambios: resumir el informe, "
+     "limitar las referencias a tres con DOI, dejar solo lo que pide el mandato y reflejar mi participación. Revisé e implementé "
+     "los artefactos y sus valores (retención, traspasos, umbrales y decisión final). Ejecuté las pruebas y los scripts, hice los "
+     "commits y las etiquetas, detecté los errores al integrar el proyecto en el repositorio del curso, los resolví con la IA e "
+     "hice el push."),
     ("Prompts relevantes", "Verificar LAB13 contra el manual y corregir lo faltante. Completar E08 según el mandato y la rúbrica. "
      "Adaptar el formato del PDF de E07 e incluir mis capturas. Diagnosticar los errores al integrar el repositorio."),
     ("Apoyo recibido", "Propuestas de código (monitoreo, simulacro, pruebas y generador del PDF) y de redacción, que revisé y ajusté; "
@@ -271,7 +274,8 @@ story.append(label_table([
     ("Verificaciones", f"Las {n_tests} pruebas pasan. Las cifras del informe se leen de los CSV y JSON; las comparé con "
      "<i>run_log.txt</i>."),
     ("Correcciones", "(1) La alerta mensual omitía el recall cuando un grupo tenía poco soporte. (2) El PSI global no detectó el fallo "
-     "del simulacro; se documentó y se añadió el perfil por zona. (3) Se recortó de las capturas una cuenta corporativa."),
+     "del simulacro; se documentó y se añadió el perfil por zona. (3) Se recortó de las capturas una cuenta corporativa. (4) Al "
+     "revisar la primera versión del informe, pedí resumirla y retirar contenido y referencias que el mandato no pedía."),
     ("Responsabilidad", "Los valores y las conclusiones son míos. Puedo explicar cada parte y asumo la responsabilidad de lo entregado."),
 ], label_width=0.2))
 
