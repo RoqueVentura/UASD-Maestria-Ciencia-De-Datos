@@ -41,7 +41,7 @@ Los datos son sintéticos, así que tampoco se permite inferir nada sobre poblac
 | Recall global | 0.717 | >= 0.68 | ✅ |
 | Brecha de recall entre grupos | 0.138 | <= 0.16 | ✅ |
 | Brecha de FPR entre grupos | 0.125 | <= 0.16 | ✅ |
-| Latencia por caso | 0.07 ms | <= 500 ms | ✅ |
+| Latencia por caso | < 0.1 ms (0.03 ms en la última ejecución; varía entre ejecuciones) | <= 500 ms | ✅ |
 | Tamaño del modelo | 3.6 KB | <= 1024 KB | ✅ |
 
 Accuracy global: 0.719. Precisión: 0.776. FPR: 0.279. Como referencia, un baseline que marque todo como positivo tiene accuracy 0.575 con recall 1.0 y FPR 1.0, así que no sirve para priorizar.
@@ -78,7 +78,7 @@ Una brecha observada es una señal que hay que investigar, no una prueba de disc
 ## Green AI evidence
 | Modelo | Entrenamiento | Tamaño | Fuente |
 |---|---|---|---|
-| Logística base | 0.16 s; latencia de 0.07 ms por caso | 3.6 KB | `reports/lab13/deployment_decision.json` |
+| Logística base | < 0.2 s (0.06 s en la última ejecución); latencia < 0.1 ms por caso | 3.6 KB | `reports/lab13/deployment_decision.json` |
 | Árbol (max_depth = 5) | 0.16 s | 7.9 KB | `reports/lab12/tree/global_metrics.json` |
 | ExponentiatedGradient | 1.39 s (unas 11 veces la logística, 0.12 s) | — | `reports/e07/bootstrap_gaps.json` |
 | Reglas sin modelo | Sin entrenamiento | — | `reports/e07/mitigation_comparison.csv` |

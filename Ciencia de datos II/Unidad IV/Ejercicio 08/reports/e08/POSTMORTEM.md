@@ -6,7 +6,7 @@
 | Campo | Valor |
 |---|---|
 | Escenario | Una migración de la fuente deja `previous_incidents` en 0 para todos los casos de la zona Oeste (41 casos del lote) |
-| Ejecución | 2026-11-01T01:02:30Z (`timeline.json`) |
+| Ejecución | 2026-11-01T01:08:39Z (`timeline.json`; manifiesto creado a las 01:08:40Z) |
 | Versión | `logistic-sklearn1.9.1-054494c`; SHA-256 del modelo en `manifest.json` |
 | Clase | Alta: el recall cae por debajo de 0.68 y la brecha de recall supera 0.16 (condición de retiro de LAB11) |
 | Resultado | REVIEW con puertas fallidas `recall` y `recall_gap`; recuperación verificada (GO con el lote corregido) |
